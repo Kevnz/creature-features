@@ -1,0 +1,32 @@
+{
+  "name": "creature-features",
+  "version": "0.0.1",
+  "description": "Feature flags for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevnz/creature-features.git"
+  },
+  "keywords": [
+    "feature",
+    "flags",
+    "features",
+    "toggles",
+    "feature",
+    "toggles",
+    "continuous delivery",
+    "continuous integration"
+  ],
+  "author": "Kevin Isom <kevin.isom@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kevnz/creature-features/issues"
+  },
+  "homepage": "https://github.com/Kevnz/creature-features#readme",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
+}
