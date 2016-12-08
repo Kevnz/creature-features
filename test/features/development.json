@@ -1,0 +1,7 @@
+{
+    "DefaultFeature": true,
+    "DefaultOverride": true,
+    "TestOnlyFeature": true,
+    "LocationIsTest": true,
+    "DevelopmentFeature": true
+}
