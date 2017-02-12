@@ -1,5 +1,5 @@
 # Creature Features
-## Dead simple feature flags
+## Dead simple feature flags for node.js
 ### Install
 ```bash
 npm install creature-features --save
