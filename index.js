@@ -1,16 +1,24 @@
 'use strict';
-const path = require('path');
-const fs = require('fs');
-const endWith = require('end-with');
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var path = require('path');
+var fs = require('fs');
+var endWith = require('end-with');
 
 module.exports = function (config) {
-  let env, featuresFile, baseFeatures, overrides, locationBase = './features/';
+  var env = void 0,
+      featuresFile = void 0,
+      baseFeatures = void 0,
+      overrides = void 0,
+      locationBase = './features/';
   if (arguments.length === 0) {
     env = process.env.NODE_ENV || 'development';
   } else {
-    if (typeof config ==='string'){
-      env = config
-    } else { //config is believed to be an object
+    if (typeof config === 'string') {
+      env = config;
+    } else {
+      //config is believed to be an object
       env = config.env ? config.env : process.env.NODE_ENV;
       overrides = config;
       delete overrides.env;
@@ -20,21 +28,23 @@ module.exports = function (config) {
     }
   }
 
-  featuresFile = `${locationBase}${env}.json`;
-  baseFeatures = `${locationBase}default.json`;
+  featuresFile = '' + locationBase + env + '.json';
+  baseFeatures = locationBase + 'default.json';
 
-  const featuresFiles = [baseFeatures, featuresFile];
+  var featuresFiles = [baseFeatures, featuresFile];
   if (env === 'development') {
     // look for a "named" development file
-    const files = fs.readdirSync(path.join( process.cwd(), './features'));
+    var files = fs.readdirSync(path.join(process.cwd(), './features'));
     for (var i = 0; i < files.length; i++) {
-      if(files[i].indexOf('development.') > -1 && files[i] !== 'development.json') {
-        featuresFiles.push('./features/'+ files[i]);
+      if (files[i].indexOf('development.') > -1 && files[i] !== 'development.json') {
+        featuresFiles.push('./features/' + files[i]);
       }
     };
   }
 
-  const requiredFeatures = featuresFiles.map((file) => require(file));
+  var requiredFeatures = featuresFiles.map(function (file) {
+    return require(file);
+  });
 
-  return Object.assign(...requiredFeatures);
-}
+  return Object.assign.apply(Object, _toConsumableArray(requiredFeatures));
+};
