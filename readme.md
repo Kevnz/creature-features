@@ -35,7 +35,7 @@ if (features.FeatureOne) {
 }
 ```
 ### In Webpack
-```
+```javascript
 const features = require('creature-features')();
 const webpack = require('webpack');
 
