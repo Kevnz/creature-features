@@ -34,6 +34,22 @@ if (features.FeatureOne) {
 // do the old thing
 }
 ```
+### In Webpack
+```
+const features = require('creature-features')();
+const webpack = require('webpack');
+
+const featureFlags = new webpack.DefinePlugin({
+  FEATURES: features
+});
+
+module.exports = {
+  plugins: [featureFlags],
+  ...
+
+// in a ui file
+if (FEATURES.FeatureOne)
+```
 ### Why?
 * [They are useful](http://code.flickr.net/2009/12/02/flipping-out/)
 * [More info](http://featureflags.io/)
