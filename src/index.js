@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const endWith = require('end-with');
-
+const exists = require('file-exists');
 module.exports = function (config) {
   let env, featuresFile, baseFeatures, overrides, locationBase = './features/';
   if (arguments.length === 0) {
@@ -22,7 +22,12 @@ module.exports = function (config) {
   featuresFile = `${locationBase}${env}.json`;
   baseFeatures = `${locationBase}default.json`;
 
-  const featuresFiles = [baseFeatures, featuresFile];
+  const featuresFiles = [];
+  featuresFiles.push(baseFeatures);
+  if (typeof featuresFile === 'string' && exists.sync(featuresFile)) {
+    featuresFiles.push(featuresFile);
+  }
+
   if (env === 'development') {
     // look for a "named" development file
     const files = fs.readdirSync(path.join( process.cwd(), './features'));
@@ -34,6 +39,5 @@ module.exports = function (config) {
   }
 
   const requiredFeatures = featuresFiles.map((file) => require(file));
-
   return Object.assign(...requiredFeatures);
 }

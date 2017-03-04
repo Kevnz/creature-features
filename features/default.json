@@ -2,7 +2,6 @@
     "FirstFeature": true,
     "DefaultFeature": false,
     "DefaultOverride": false,
-    "IsDevelopment": false,
-    "IsTest": false,
-    "DefaultLocation": true
+    "DefaultLocation": true,
+    "IsThisTheDefaultFile": true
 }

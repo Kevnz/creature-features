@@ -5,7 +5,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var path = require('path');
 var fs = require('fs');
 var endWith = require('end-with');
-
+var exists = require('file-exists');
 module.exports = function (config) {
   var env = void 0,
       featuresFile = void 0,
@@ -31,7 +31,12 @@ module.exports = function (config) {
   featuresFile = '' + locationBase + env + '.json';
   baseFeatures = locationBase + 'default.json';
 
-  var featuresFiles = [baseFeatures, featuresFile];
+  var featuresFiles = [];
+  featuresFiles.push(baseFeatures);
+  if (typeof featuresFile === 'string' && exists.sync(featuresFile)) {
+    featuresFiles.push(featuresFile);
+  }
+
   if (env === 'development') {
     // look for a "named" development file
     var files = fs.readdirSync(path.join(process.cwd(), './features'));
@@ -45,6 +50,5 @@ module.exports = function (config) {
   var requiredFeatures = featuresFiles.map(function (file) {
     return require(file);
   });
-
   return Object.assign.apply(Object, _toConsumableArray(requiredFeatures));
 };

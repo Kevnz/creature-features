@@ -2,6 +2,5 @@
     "FirstFeature": true,
     "DefaultFeature": true,
     "DefaultOverride": true,
-    "IsDevelopment": false,
     "IsTest": true
 }
