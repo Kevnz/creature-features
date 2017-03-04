@@ -33,7 +33,7 @@ module.exports = function (config) {
 
   var featuresFiles = [];
   featuresFiles.push(baseFeatures);
-  if (typeof featuresFile === 'string' && exists.sync(featuresFile)) {
+  if (typeof featuresFile === 'string' && exists(featuresFile)) {
     featuresFiles.push(featuresFile);
   }
 

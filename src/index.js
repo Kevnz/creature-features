@@ -24,7 +24,7 @@ module.exports = function (config) {
 
   const featuresFiles = [];
   featuresFiles.push(baseFeatures);
-  if (typeof featuresFile === 'string' && exists.sync(featuresFile)) {
+  if (typeof featuresFile === 'string' && exists(featuresFile)) {
     featuresFiles.push(featuresFile);
   }
 
