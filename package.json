@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "end-with": "^1.0.2",
-    "file-exists": "^2.0.0"
+    "file-exists": "^2.0.0",
+    "weighted": "^0.3.0"
   }
 }
