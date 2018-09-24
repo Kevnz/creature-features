@@ -1,13 +1,15 @@
 {
   "name": "creature-features",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "Feature flags for node.js",
   "main": "index.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "scripts": {
-    "build": "babel src -d .",
-    "pretest": "npm run build",
-    "test": "ava test/*.js",
-    "cov": "cross-env NODE_ENV=test nyc ava test/*.js"
+    "lint": "eslint ./index.js ./test/*.test.js",
+    "test": "jest test/*.test.js",
+    "cov": "jest test/*.test.js --coverage"
   },
   "repository": {
     "type": "git",
@@ -16,10 +18,9 @@
   "keywords": [
     "feature",
     "flags",
-    "features",
     "toggles",
-    "feature",
-    "toggles",
+    "feature flags",
+    "feature toggles",
     "continuous delivery",
     "continuous integration"
   ],
@@ -30,15 +31,18 @@
   },
   "homepage": "https://github.com/Kevnz/creature-features#readme",
   "devDependencies": {
-    "ava": "^0.17.0",
-    "babel-cli": "^6.22.2",
-    "babel-preset-env": "^1.1.8",
-    "cross-env": "^3.1.3",
-    "nyc": "^10.0.0",
-    "tape": "^4.6.3"
+    "cross-env": "^5.2.0",
+    "eslint": "^5.6.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "jest-cli": "^23.6.0",
+    "prettier": "^1.14.3"
   },
   "dependencies": {
     "end-with": "^1.0.2",
-    "file-exists": "^2.0.0"
+    "file-exists": "^5.0.1",
+    "random-weighted": "^1.0.0",
+    "weighted": "^0.3.0"
   }
 }
