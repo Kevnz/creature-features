@@ -4,7 +4,7 @@ describe('The Default Behavior of the Module', () => {
     delete process.env.NODE_ENV;
   });
 
-  it('Load features from default location', () => {
+  it('Load default features', () => {
 
     const creature = require('../index');
     const features = creature();
@@ -19,7 +19,8 @@ describe('The Default Behavior of the Module', () => {
     const namedFeatures = creature('development');
     expect(namedFeatures.IsNamed).toBe(true);
   });
-  it('should load features with a custom env', () => {
+
+  it('should load features with a custom environment passed', () => {
     process.env.NODE_ENV = 'test';
     const creature = require('../index');
     const envFeatures = creature('development')
@@ -37,7 +38,8 @@ describe('The Default Behavior of the Module', () => {
     expect(envFeatures.DefaultOverride).toBe(false);
 
   });
-  it('should load features from a custom location', () => {
+
+  it('should load features from a custom location and the NODE_ENV has been set', () => {
     process.env.NODE_ENV = 'development';
     const creature = require('../index');
     const locationFeatures = creature({
@@ -48,9 +50,9 @@ describe('The Default Behavior of the Module', () => {
     expect(() => {
       locationFeatures.DefaultLocation
     }).toThrow();
-
   });
-  it('should load features from a custom location no slash', () => {
+
+  it('should load features from a custom location no slash and the NODE_ENV has been set', () => {
     process.env.NODE_ENV = 'development';
     const creature = require('../index');
     const locationFeatures = creature({
@@ -61,9 +63,9 @@ describe('The Default Behavior of the Module', () => {
     expect(() => {
       locationFeatures.DefaultLocation
     }).toThrow();
-
   });
-  it('should load features from a custom location and a custom environment', () => {
+
+  it('should load features from a custom location and a custom environment config object', () => {
     process.env.NODE_ENV = 'test';
     const creature = require('../index');
     const locationFeatures = creature({
@@ -74,7 +76,8 @@ describe('The Default Behavior of the Module', () => {
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.DevelopmentFeature).toBe(true);
   });
-  it('should load features from a custom location without trailing slash', () => {
+
+  it('should load features from a config object with custom location without trailing slash', () => {
     process.env.NODE_ENV = 'development';
     const creature = require('../index');
     const locationFeatures = creature({
@@ -85,8 +88,8 @@ describe('The Default Behavior of the Module', () => {
     expect(() => {
       locationFeatures.DefaultLocation
     }).toThrow();
-
   });
+
   it('should load features from a custom location with a trailing slash', () => {
     process.env.NODE_ENV = 'development';
     const creature = require('../index');
@@ -98,8 +101,8 @@ describe('The Default Behavior of the Module', () => {
     expect(() => {
       locationFeatures.DefaultLocation
     }).toThrow();
-
   });
+
   it('should throw an error when trying to set a feature', () => {
     process.env.NODE_ENV = 'development';
     const creature = require('../index');
@@ -108,6 +111,5 @@ describe('The Default Behavior of the Module', () => {
     expect(() => {
       locationFeatures.FirstFeature = true
     }).toThrow();
-
   });
 });
