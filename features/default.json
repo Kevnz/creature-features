@@ -3,5 +3,6 @@
     "DefaultFeature": false,
     "DefaultOverride": false,
     "DefaultLocation": true,
-    "IsThisTheDefaultFile": true
+    "IsThisTheDefaultFile": true,
+    "IsCustomLocation": false
 }
