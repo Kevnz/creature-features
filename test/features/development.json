@@ -3,5 +3,7 @@
     "DefaultOverride": true,
     "TestOnlyFeature": true,
     "LocationIsTest": true,
-    "DevelopmentFeature": true
+    "DevelopmentFeature": true,
+    "IsDefaultLocation": false,
+    "IsDevelopmentFromDefault": false
 }

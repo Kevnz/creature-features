@@ -1,0 +1,26 @@
+{
+  "EmailBasedFeature": {
+    "parameters": "email",
+    "check": "email.indexOf('test') > -1"
+  },
+  "ObjectPassedFeature": {
+    "parameters": "email,role",
+    "check": "email.indexOf('test') > -1 && role ==='admin'"
+  },
+  "PercentBasedFiftyFifty": {
+    "range": [50, 50]
+  },
+  "PercentBasedRuleOneThird": {
+    "range": [33, 67]
+  },
+  "InvalidUnderPercentRule": {
+    "range": [33, 66]
+  },
+  "InvalidOverPercentRule": {
+    "range": [33, 68]
+  },
+  "DefaultOverride": true,
+  "TestOnlyFeature": true,
+  "RuleTest": false,
+  "DevelopmentFeature": true
+}

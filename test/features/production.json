@@ -1,0 +1,8 @@
+{
+  "FirstFeature": true,
+  "DefaultFeature": true,
+  "DefaultOverride": true,
+  "IsTest": false,
+  "IsProduction": true,
+  "IsCustomLocation": true
+}
