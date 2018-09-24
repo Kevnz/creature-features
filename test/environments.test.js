@@ -16,7 +16,7 @@ describe('The Default Behavior of the Module', () => {
   it('should load features with a custom env when a different NODE_ENV is already set', () => {
     process.env.NODE_ENV = 'test';
     const creature = require('../index');
-    const envFeatures = creature('development')
+    const envFeatures = creature('development');
     expect(envFeatures.FirstFeature).toBe(true);
     expect(envFeatures.IsDevelopment).toBe(true);
     expect(envFeatures.IsDevelopmentFromDefault).toBe(true);
@@ -26,13 +26,11 @@ describe('The Default Behavior of the Module', () => {
   it('should load features with a production env that does have a feature file', () => {
     process.env.NODE_ENV = 'production';
     const creature = require('../index');
-    const envFeatures = creature()
+    const envFeatures = creature();
 
     expect(envFeatures.IsTest).toBe(false);
     expect(envFeatures.IsProduction).toBe(true);
     expect(envFeatures.IsCustomLocation).toBe(false);
-
-
   });
 
   it('should load features from a custom location and a custom environment based on NODE_ENV setting', () => {
@@ -45,9 +43,5 @@ describe('The Default Behavior of the Module', () => {
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.IsTest).toBe(false);
     expect(locationFeatures.IsCustomLocation).toBe(true);
-
   });
-
-
-
 });

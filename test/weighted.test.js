@@ -7,7 +7,7 @@ describe('Feature based on percents', () => {
     let trueTotal = 0;
     for (let index = 0; index < 1000; index++) {
       if (features.PercentBasedFiftyFifty) {
-        trueTotal++
+        trueTotal++;
       }
     }
     expect(trueTotal > 450).toBe(true);
@@ -21,7 +21,7 @@ describe('Feature based on percents', () => {
     let trueTotal = 0;
     for (let index = 0; index < 1000; index++) {
       if (features.PercentBasedRuleOneThird) {
-        trueTotal++
+        trueTotal++;
       }
     }
     expect(trueTotal > 300).toBe(true);
@@ -45,7 +45,7 @@ describe('Feature based on percents', () => {
     let trueTotal = 0;
     for (let index = 0; index < 10000; index++) {
       if (features.PercentBasedRuleOneThird) {
-        trueTotal++
+        trueTotal++;
       }
     }
 
