@@ -1,6 +1,6 @@
 {
   "name": "creature-features",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Feature flags for node.js",
   "main": "index.js",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "eslint ./index.js ./test/*.test.js",
-    "test": "jest test/*.test.js",
+    "test": "cross-env DEBUG=* jest test/*.test.js",
     "cov": "jest test/*.test.js --coverage"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "prettier": "^1.14.3"
   },
   "dependencies": {
+    "debug": "^4.1.0",
     "end-with": "^1.0.2",
     "file-exists": "^5.0.1",
     "random-weighted": "^1.0.0",

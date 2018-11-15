@@ -45,9 +45,7 @@ describe('The Default Behavior of the Module', () => {
     });
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.LocationIsTest).toBe(true);
-    expect(() => {
-      locationFeatures.DefaultLocation;
-    }).toThrow();
+    expect(locationFeatures.DefaultLocation).toBe(false);
   });
 
   it('should load features from a custom location no slash and the NODE_ENV has been set', () => {
@@ -58,9 +56,7 @@ describe('The Default Behavior of the Module', () => {
     });
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.LocationIsTest).toBe(true);
-    expect(() => {
-      locationFeatures.DefaultLocation;
-    }).toThrow();
+    expect(locationFeatures.DefaultLocation).toBe(false);
   });
 
   it('should when given a symbol return false and not error', () => {
@@ -92,9 +88,7 @@ describe('The Default Behavior of the Module', () => {
     });
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.LocationIsTest).toBe(true);
-    expect(() => {
-      locationFeatures.DefaultLocation;
-    }).toThrow();
+    expect(locationFeatures.DefaultLocation).toBe(false);
   });
 
   it('should load features from a custom location with a trailing slash', () => {
@@ -105,9 +99,7 @@ describe('The Default Behavior of the Module', () => {
     });
     expect(locationFeatures.Location).toBe(true);
     expect(locationFeatures.LocationIsTest).toBe(true);
-    expect(() => {
-      locationFeatures.DefaultLocation;
-    }).toThrow();
+    expect(locationFeatures.DefaultLocation).toBe(false);
   });
 
   it('should throw an error when trying to set a feature', () => {

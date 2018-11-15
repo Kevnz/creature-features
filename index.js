@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const debug = require('debug')('Creature-Features');
 const endWith = require('end-with');
 const random = require('random-weighted');
 const exists = fs.existsSync;
@@ -66,7 +67,8 @@ module.exports = function(config) {
     get: (obj, prop) => {
       if (obj[prop] === undefined) {
         if (typeof prop === 'symbol') return false;
-        throw new Error(`${prop} feature is undefined`);
+        debug(`${prop} feature is undefined`);
+        return false;
       }
 
       if (obj[prop] === true || obj[prop] === false) {
