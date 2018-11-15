@@ -19,9 +19,9 @@ npm install creature-features --save
 #### Example File
 ```json
 {
-	"FeatureOne": true,
-	"FeatureTwo": true,
-	"FeatureThree": false
+  "FeatureOne": true,
+  "FeatureTwo": true,
+  "FeatureThree": false
 }
 ```
 
@@ -38,7 +38,7 @@ if (features.FeatureOne) {
 #### Rules Based
 ```json
 {
-	"FeatureOne": true,
+  "FeatureOne": true,
   "FeatureTwo": true,
   "RuleForEmailFeature": {
     "parameters": "email",
@@ -68,7 +68,7 @@ if (features.RuleForEmailAndRoleFeature({ email: user.email, role: user.account.
 #### Weight Based
 ```json
 {
-	"FeatureOne": true,
+  "FeatureOne": true,
   "FeatureTwo": true,
   "PercentBasedFiftyFifty": {
     "range": [50, 50]
