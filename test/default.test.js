@@ -63,6 +63,15 @@ describe('The Default Behavior of the Module', () => {
     }).toThrow();
   });
 
+  it('should when given a symbol return false and not error', () => {
+    process.env.NODE_ENV = 'development';
+    const creature = require('../index');
+    const locationFeatures = creature({
+      location: './test/features'
+    });
+    expect(locationFeatures[Symbol('tester')]).toBe(false);
+  });
+
   it('should load features from a custom location and a custom environment config object', () => {
     process.env.NODE_ENV = 'test';
     const creature = require('../index');

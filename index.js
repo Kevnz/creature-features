@@ -65,6 +65,7 @@ module.exports = function(config) {
   const featureProxy = new Proxy(feats, {
     get: (obj, prop) => {
       if (obj[prop] === undefined) {
+        if (typeof prop === 'symbol') return false;
         throw new Error(`${prop} feature is undefined`);
       }
 
