@@ -4,8 +4,14 @@
     "node": true,
     "jest": true
   },
-  "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
-  "plugins": ["prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "ecmaFeatures": {
@@ -13,7 +19,6 @@
       "classes": true
     }
   },
-
   "rules": {
     "indent": [
       "error",
@@ -22,17 +27,32 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-console": [0],
-    "node/exports-style": ["error", "module.exports"],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-console": [
+      0
+    ],
+    "node/exports-style": [
+      "error",
+      "module.exports"
+    ],
     "prettier/prettier": [
       "error",
       {
         "singleQuote": true,
         "bracketSpacing": true,
         "jsxBracketSameLine": true,
+        "semi": false,
         "parser": "flow"
       }
     ]

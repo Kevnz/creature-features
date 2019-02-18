@@ -1,6 +1,6 @@
 {
   "name": "creature-features",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Feature flags for node.js",
   "main": "index.js",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "eslint ./index.js ./test/*.test.js",
-    "test": "cross-env DEBUG=* jest test/*.test.js",
+    "test": "cross-env jest test/*.test.js",
     "cov": "jest test/*.test.js --coverage"
   },
   "repository": {
@@ -29,8 +29,9 @@
   "bugs": {
     "url": "https://github.com/Kevnz/creature-features/issues"
   },
-  "homepage": "https://github.com/Kevnz/creature-features#readme",
+  "homepage": "http://kevinisom.info/creature-features/",
   "devDependencies": {
+    "@kev_nz/publisher": "^1.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^5.6.0",
     "eslint-config-prettier": "^3.1.0",

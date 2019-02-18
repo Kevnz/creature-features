@@ -1,12 +1,20 @@
 # Creature Features
-## Dead simple feature flags for node.js
+
+
+## Dead simple feature flags
+
+Creature-Features allows feature flags based on json configuration files and supports true/false, custom rules, and weighted checks.
 
 ### Install
+
 ```bash
 npm install creature-features --save
 ```
+
 ### Configure
+
 #### directory and files
+
 ```
 - features
 -- default.json (default settings)
@@ -16,7 +24,9 @@ npm install creature-features --save
 -- production.json (settigns for production)
 -- {any other environment}.json
 ```
+
 #### Example File
+
 ```json
 {
   "FeatureOne": true,
@@ -26,6 +36,7 @@ npm install creature-features --save
 ```
 
 ### Usage
+
 ```javascript
 const features = require('creature-features')();
 // Default behavior
@@ -50,6 +61,7 @@ if (features.FeatureOne) {
   }
 }
 ```
+
 ```javascript
 const features = require('creature-features')();
 // Default behavior
@@ -66,6 +78,7 @@ if (features.RuleForEmailAndRoleFeature({ email: user.email, role: user.account.
 ```
 
 #### Weight Based
+
 ```json
 {
   "FeatureOne": true,
@@ -92,6 +105,7 @@ if (features.PercentBasedOneThird) {
 ```
 
 ### In Webpack
+
 ```javascript
 const features = require('creature-features')();
 const webpack = require('webpack');
@@ -105,13 +119,16 @@ module.exports = {
   ...
 
 // in a ui file
-if (FEATURES.FeatureOne)
+if (FEATURES.FeatureOne) { }
 ```
+
 ### Why?
+
 * [They are useful](http://code.flickr.net/2009/12/02/flipping-out/)
 * [More info](http://featureflags.io/)
 
 ### Advanced Usage
+
 ```javascript
 const creature = require('creature-features');
 const prodFeatures = creature('production');
