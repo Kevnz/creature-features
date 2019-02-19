@@ -1,5 +1,6 @@
 # Creature Features
 
+[![npm version](https://badge.fury.io/js/fuxor.svg)](https://badge.fury.io/js/fuxor) [![Build Status](https://travis-ci.org/Kevnz/creature-features.svg?branch=master)](https://travis-ci.org/Kevnz/creature-features)
 
 ## Dead simple feature flags
 
@@ -8,6 +9,7 @@ Creature-Features allows feature flags based on json configuration files and sup
 ### Install
 
 ```bash
+
 npm install creature-features --save
 ```
 
@@ -16,6 +18,7 @@ npm install creature-features --save
 #### directory and files
 
 ```
+
 - features
 -- default.json (default settings)
 -- development.json (settings for development environment)
@@ -28,6 +31,7 @@ npm install creature-features --save
 #### Example File
 
 ```json
+
 {
   "FeatureOne": true,
   "FeatureTwo": true,
@@ -38,6 +42,7 @@ npm install creature-features --save
 ### Usage
 
 ```javascript
+
 const features = require('creature-features')();
 // Default behavior
 if (features.FeatureOne) {
@@ -48,6 +53,7 @@ if (features.FeatureOne) {
 ```
 #### Rules Based
 ```json
+
 {
   "FeatureOne": true,
   "FeatureTwo": true,
@@ -63,6 +69,7 @@ if (features.FeatureOne) {
 ```
 
 ```javascript
+
 const features = require('creature-features')();
 // Default behavior
 if (features.RuleForEmailFeature(user.email)) {
@@ -80,6 +87,7 @@ if (features.RuleForEmailAndRoleFeature({ email: user.email, role: user.account.
 #### Weight Based
 
 ```json
+
 {
   "FeatureOne": true,
   "FeatureTwo": true,
@@ -93,6 +101,7 @@ if (features.RuleForEmailAndRoleFeature({ email: user.email, role: user.account.
 ```
 
 ```javascript
+
 const features = require('creature-features')();
 // Roughly 50% of the the time this will be true
 if (features.PercentBasedFiftyFifty) {
@@ -102,11 +111,13 @@ if (features.PercentBasedFiftyFifty) {
 if (features.PercentBasedOneThird) {
 // do something new
 }
+
 ```
 
 ### In Webpack
 
 ```javascript
+
 const features = require('creature-features')();
 const webpack = require('webpack');
 
@@ -124,7 +135,8 @@ if (FEATURES.FeatureOne) { }
 
 ### Why?
 
-* [They are useful](http://code.flickr.net/2009/12/02/flipping-out/)
+* [What are they?](https://martinfowler.com/articles/feature-toggles.html)
+* [How are they useful](http://code.flickr.net/2009/12/02/flipping-out/)
 * [More info](http://featureflags.io/)
 
 ### Advanced Usage
