@@ -1,10 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/mern-starter
     docker:
       - image: circleci/node:11.9
-    working_directory: ~/repo
+    working_directory: ~/creature-features
     steps:
       - checkout
 
