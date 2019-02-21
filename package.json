@@ -1,6 +1,6 @@
 {
   "name": "creature-features",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Feature flags for node.js",
   "main": "index.js",
   "engines": {
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/Kevnz/creature-features/issues"
   },
-  "homepage": "http://kevinisom.info/creature-features/",
+  "homepage": "https://kevinisom.info/creature-features/",
   "devDependencies": {
     "@kev_nz/publisher": "^1.0.1",
     "cross-env": "^5.2.0",
