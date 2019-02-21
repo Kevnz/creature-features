@@ -8,6 +8,7 @@ jobs:
       - checkout
 
       - run: npm install
-
+      - run: npm run lint
       # run tests!
       - run: npm test
+      - run: npm run cov
