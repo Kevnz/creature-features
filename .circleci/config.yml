@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/mern-starter
+    docker:
+      - image: circleci/node:11.9
+    steps:
+      - checkout
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - run:
+          name: test
+          command: npm test
