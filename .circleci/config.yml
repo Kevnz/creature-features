@@ -18,4 +18,4 @@ jobs:
             git config --global user.email "Kevnz@users.noreply.github.com"
             git config --global user.name "Kevin Isom"
             echo "machine github.com login Kevnz password $GITHUB_TOKEN" > ~/.netrc
-            cd website && yarn install && GIT_USER=Kevnz npm run docs
+      - run: npm run docs
