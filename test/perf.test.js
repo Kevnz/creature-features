@@ -2,12 +2,11 @@ const creature = require('../index')
 const locationFeatures = creature({
   location: './test/features/rules'
 })
-let slowCount = 0
-let fastCount = 0
-const end = (label, hrstart, start) => {
+
+const end = (label, hrstart) => {
   // console.log(hrstart)
   // execution time simulated with setTimeout function
-  const end = new Date() - start
+
   const hrend = process.hrtime(hrstart)
   /*
   console.info(`Start ${label}`)
@@ -79,12 +78,6 @@ describe('Feature based on rules and timer', () => {
       const normalTime = end('The Normal', hrstart2, start2)
       const diff = (featureTime - normalTime) * 100
 
-      if (diff > 100) {
-        slowCount++
-      }
-      if (diff < 0) {
-        fastCount++
-      }
       expect(diff).toBeLessThanOrEqual(1150)
     })
   })
