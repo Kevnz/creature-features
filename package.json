@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "eslint ./index.js ./test/*.test.js",
     "test": "cross-env jest test/*.test.js",
-    "cov": "jest test/*.test.js --coverage"
+    "cov": "jest test/*.test.js --coverage",
+    "predocs": " jest test/*.test.js --coverage --coverageDirectory=dist/coverage ",
+    "docs": "publisher"
   },
   "repository": {
     "type": "git",
@@ -46,5 +48,12 @@
     "file-exists": "^5.0.1",
     "random-weighted": "^1.0.0",
     "weighted": "^0.3.0"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "text",
+      "html"
+    ]
   }
 }
