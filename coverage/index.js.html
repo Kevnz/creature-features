@@ -289,29 +289,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const path = require('path');
-const fs = require('fs');
-const debug = require('debug')('Creature-Features');
-const endWith = require('end-with');
-const random = require('random-weighted');
-const exists = fs.existsSync;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const path = require('path')
+const fs = require('fs')
+const debug = require('debug')('Creature-Features')
+const endWith = require('end-with')
+const random = require('random-weighted')
+const exists = fs.existsSync
 &nbsp;
 module.exports = function(config) {
-  let env;
-  let featuresFile;
-  let baseFeatures;
+  let env
+  let featuresFile
+  let baseFeatures
   let defaults = {
     location: './features/'
-  };
+  }
 &nbsp;
-  const settings = Object.assign({}, defaults, config);
+  const settings = Object.assign({}, defaults, config)
   if (arguments.length === 0) {
-    env = process.env.NODE_ENV || 'development';
+    env = process.env.NODE_ENV || 'development'
   } else {
     if (typeof config === 'string') {
-      env = config;
+      env = config
     } else {
-      env = config.env ? config.env : process.env.NODE_ENV;
+      env = config.env ? config.env : process.env.NODE_ENV
     }
   }
 &nbsp;
@@ -319,28 +319,28 @@ module.exports = function(config) {
     endWith(settings.location, '/')
       ? settings.location
       : settings.location + '/'
-  }${env}.json`;
+  }${env}.json`
   baseFeatures = `${
     endWith(settings.location, '/')
       ? settings.location
       : settings.location + '/'
-  }default.json`;
+  }default.json`
 &nbsp;
-  var featuresFiles = [];
-  featuresFiles.push(baseFeatures);
+  var featuresFiles = []
+  featuresFiles.push(baseFeatures)
   if (typeof featuresFile === 'string' &amp;&amp; exists(featuresFile)) {
-    featuresFiles.push(featuresFile);
+    featuresFiles.push(featuresFile)
   }
 &nbsp;
   if (env === 'development') {
     // look for a "named" development file
-    const files = fs.readdirSync(path.join(process.cwd(), './features'));
+    const files = fs.readdirSync(path.join(process.cwd(), './features'))
     for (let i = 0; i &lt; files.length; i++) {
       if (
         files[i].indexOf('development.') &gt; -1 &amp;&amp;
         files[i] !== 'development.json'
       ) {
-        featuresFiles.push('./features/' + files[i]);
+        featuresFiles.push('./features/' + files[i])
       }
     }
   }
@@ -348,34 +348,34 @@ module.exports = function(config) {
   const requiredFeatures = featuresFiles
     .filter(f =&gt; exists(f))
     .map(function(file) {
-      return require(file);
-    });
+      return require(file)
+    })
 &nbsp;
   const feats = requiredFeatures.reduce((prev, current) =&gt; {
-    return { ...prev, ...current };
-  }, {});
+    return { ...prev, ...current }
+  }, {})
   const featureProxy = new Proxy(feats, {
     get: (obj, prop) =&gt; {
       if (obj[prop] === undefined) {
-        if (typeof prop === 'symbol') return false;
-        debug(`${prop} feature is undefined`);
-        return false;
+        if (typeof prop === 'symbol') return false
+        debug(`${prop} feature is undefined`)
+        return false
       }
 &nbsp;
       if (obj[prop] === true || obj[prop] === false) {
-        return obj[prop];
+        return obj[prop]
       }
       if (obj[prop].range !== undefined) {
         //validate
         const total = obj[prop].range.reduce(
           (previous, current) =&gt; previous + current,
           0
-        );
+        )
         if (total !== 100) {
-          throw new Error('Range values must total 100');
+          throw new Error('Range values must total 100')
         }
-        const range = obj[prop].range.map(v =&gt; v / 100);
-        return random(range) === 0;
+        const range = obj[prop].range.map(v =&gt; v / 100)
+        return random(range) === 0
       }
 &nbsp;
       return (...args) =&gt;
@@ -385,40 +385,40 @@ module.exports = function(config) {
               const check = `
           'use strict';
           const ${obj[prop].parameters} = '${args[1]}'
-          return ${obj[prop].check}`;
+          return ${obj[prop].check}`
 &nbsp;
-              const funced = new Function(check);
-              const result = funced();
+              const funced = new Function(check)
+              const result = funced()
 &nbsp;
-              return result;
+              return result
             }
             const check = `
         'use strict';
         const { ${obj[prop].parameters} } = ${JSON.stringify(args[1])}
-        return ${obj[prop].check}`;
-            const funced = new Function(check);
-            const result = funced();
+        return ${obj[prop].check}`
+            const funced = new Function(check)
+            const result = funced()
 &nbsp;
-            return result;
+            return result
           },
           featureProxy,
           [prop, ...args]
-        );
+        )
     },
     set: () =&gt; {
-      throw new Error('Not allowed to set a value');
+      throw new Error('Not allowed to set a value')
     }
-  });
+  })
 &nbsp;
-  return featureProxy;
-};
+  return featureProxy
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 22 2019 09:39:04 GMT+1300 (New Zealand Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 21:12:02 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="prettify.js"></script>
