@@ -10,9 +10,10 @@
     "lint": "eslint ./index.js ./test/*.test.js",
     "test": "cross-env jest test/*.test.js",
     "cov": "jest test/*.test.js --coverage",
+    "coverage": "jest test/*.test.js --coverage",
     "predocs": " jest test/*.test.js --coverage --coverageDirectory=./dist/coverage ",
     "docs": "publisher",
-    "postcov": "coveralls"
+    "postcoverage": "coveralls"
   },
   "repository": {
     "type": "git",

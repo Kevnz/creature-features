@@ -11,7 +11,7 @@ jobs:
       - run: npm run lint
       # run tests!
       - run: npm test
-      - run: npm run cov
+      - run: npm run coverage
       - run:
           name: Setup Github
           command: |
