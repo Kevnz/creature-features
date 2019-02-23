@@ -1,6 +1,6 @@
 # Creature Features
 
-[![npm version](https://badge.fury.io/js/fuxor.svg)](https://badge.fury.io/js/fuxor) [![Build Status](https://travis-ci.org/Kevnz/creature-features.svg?branch=master)](https://travis-ci.org/Kevnz/creature-features) [![Coverage](https://img.shields.io/badge/endpoint.svg?color=brightgreen&label=Coverage&logoColor=brightgreen&url=https%3A%2F%2Fkevinisom.info%2Fcreature-features%2Fbadge.json)](https://kevinisom.info/creature-features/coverage/)
+[![npm version](https://badge.fury.io/js/fuxor.svg)](https://badge.fury.io/js/fuxor) [![Build Status](https://travis-ci.org/Kevnz/creature-features.svg?branch=master)](https://travis-ci.org/Kevnz/creature-features) [![Coverage](https://img.shields.io/badge/endpoint.svg?color=brightgreen&label=Coverage&logoColor=brightgreen&url=https%3A%2F%2Fkevinisom.info%2Fcreature-features%2Fbadge.json)](https://kevinisom.info/creature-features/coverage/) [![Coverage Status](https://coveralls.io/repos/github/Kevnz/creature-features/badge.svg?branch=master)](https://coveralls.io/github/Kevnz/creature-features?branch=master)
 
 ## Dead simple feature flags
 
