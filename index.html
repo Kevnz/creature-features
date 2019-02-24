@@ -6,98 +6,100 @@
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <meta name="description" content="Feature flags for node.js" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css" />
+
 </head>
 
 <body>
   <div class="container">
   <h1 id="creature-features">Creature Features</h1>
-<p><a href="https://badge.fury.io/js/fuxor"><img src="https://badge.fury.io/js/fuxor.svg" alt="npm version" /></a> <a href="https://travis-ci.org/Kevnz/creature-features"><img src="https://travis-ci.org/Kevnz/creature-features.svg?branch=master" alt="Build Status" /></a> <a href="https://kevinisom.info/creature-features/coverage/"><img src="https://img.shields.io/badge/endpoint.svg?color=brightgreen&label=Coverage&logoColor=brightgreen&url=https%3A%2F%2Fkevinisom.info%2Fcreature-features%2Fbadge.json" alt="Coverage" /></a> <a href="https://coveralls.io/github/Kevnz/creature-features?branch=master"><img src="https://coveralls.io/repos/github/Kevnz/creature-features/badge.svg?branch=master" alt="Coverage Status" /></a></p>
+<p><a href="https://badge.fury.io/js/creature-features"><img src="https://badge.fury.io/js/creature-features.svg" alt="npm version" /></a> <a href="https://travis-ci.org/Kevnz/creature-features"><img src="https://travis-ci.org/Kevnz/creature-features.svg?branch=master" alt="Build Status" /></a> <a href="https://coveralls.io/github/Kevnz/creature-features?branch=master"><img src="https://coveralls.io/repos/github/Kevnz/creature-features/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 <h2 id="dead-simple-feature-flags">Dead simple feature flags</h2>
 <p>Creature-Features allows feature flags based on json configuration files and supports true/false, custom rules, and weighted checks.</p>
 <h3 id="install">Install</h3>
-<pre><code class="bash language-bash">npm install creature-features --save</code></pre>
+<pre><code class="hljs bash language-bash">npm install creature-features --save</code></pre>
 <h3 id="configure">Configure</h3>
 <h4 id="directory-and-files">directory and files</h4>
-<pre><code>- features
--- default.json (default settings)
--- development.json (settings for development environment)
--- development.{named}.json (settings for individual development environment)
--- test.json (settings for test)
--- production.json (settigns for production)
+<pre><code class="hljs">- features
+-- default<span class="hljs-selector-class">.json</span> (default settings)
+-- development<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> development environment)
+-- development.{named}<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> individual development environment)
+-- test<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> test)
+-- production<span class="hljs-selector-class">.json</span> (settigns <span class="hljs-keyword">for</span> production)
 -- {any other environment}.json</code></pre>
 <h4 id="example-file">Example File</h4>
-<pre><code class="json language-json">{
-  "FeatureOne": true,
-  "FeatureTwo": true,
-  "FeatureThree": false
+<pre><code class="hljs json language-json">{
+  <span class="hljs-attr">"FeatureOne"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"FeatureTwo"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"FeatureThree"</span>: <span class="hljs-literal">false</span>
 }</code></pre>
 <h3 id="usage">Usage</h3>
-<pre><code class="javascript language-javascript">const features = require('creature-features')();
-// Default behavior
-if (features.FeatureOne) {
-// do something new
-} else {
-// do the old thing
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">const</span> features = <span class="hljs-built_in">require</span>(<span class="hljs-string">'creature-features'</span>)();
+<span class="hljs-comment">// Default behavior</span>
+<span class="hljs-keyword">if</span> (features.FeatureOne) {
+<span class="hljs-comment">// do something new</span>
+} <span class="hljs-keyword">else</span> {
+<span class="hljs-comment">// do the old thing</span>
 }</code></pre>
 <h4 id="rules-based">Rules Based</h4>
-<pre><code class="json language-json">{
-  "FeatureOne": true,
-  "FeatureTwo": true,
-  "RuleForEmailFeature": {
-    "parameters": "email",
-    "check": "email.indexOf('test') &gt; -1"
+<pre><code class="hljs json language-json">{
+  <span class="hljs-attr">"FeatureOne"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"FeatureTwo"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"RuleForEmailFeature"</span>: {
+    <span class="hljs-attr">"parameters"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-attr">"check"</span>: <span class="hljs-string">"email.indexOf('test') &gt; -1"</span>
   },
-    "RuleForEmailAndRoleFeature": {
-    "parameters": "email,role",
-    "check": "email.indexOf('test') &gt; -1 &amp;&amp; role ==='admin'"
+    <span class="hljs-attr">"RuleForEmailAndRoleFeature"</span>: {
+    <span class="hljs-attr">"parameters"</span>: <span class="hljs-string">"email,role"</span>,
+    <span class="hljs-attr">"check"</span>: <span class="hljs-string">"email.indexOf('test') &gt; -1 &amp;&amp; role ==='admin'"</span>
   }
 }</code></pre>
-<pre><code class="javascript language-javascript">const features = require('creature-features')();
-// Default behavior
-if (features.RuleForEmailFeature(user.email)) {
-// do something new
-} else {
-// do the old thing
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">const</span> features = <span class="hljs-built_in">require</span>(<span class="hljs-string">'creature-features'</span>)();
+<span class="hljs-comment">// Default behavior</span>
+<span class="hljs-keyword">if</span> (features.RuleForEmailFeature(user.email)) {
+<span class="hljs-comment">// do something new</span>
+} <span class="hljs-keyword">else</span> {
+<span class="hljs-comment">// do the old thing</span>
 }
-if (features.RuleForEmailAndRoleFeature({ email: user.email, role: user.account.role })) {
-// do something new
-} else {
-// do the old thing
+<span class="hljs-keyword">if</span> (features.RuleForEmailAndRoleFeature({ <span class="hljs-attr">email</span>: user.email, <span class="hljs-attr">role</span>: user.account.role })) {
+<span class="hljs-comment">// do something new</span>
+} <span class="hljs-keyword">else</span> {
+<span class="hljs-comment">// do the old thing</span>
 }</code></pre>
 <h4 id="weight-based">Weight Based</h4>
-<pre><code class="json language-json">{
-  "FeatureOne": true,
-  "FeatureTwo": true,
-  "PercentBasedFiftyFifty": {
-    "range": [50, 50]
+<pre><code class="hljs json language-json">{
+  <span class="hljs-attr">"FeatureOne"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"FeatureTwo"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"PercentBasedFiftyFifty"</span>: {
+    <span class="hljs-attr">"range"</span>: [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>]
   },
-  "PercentBasedOneThird": {
-    "range": [33, 67]
+  <span class="hljs-attr">"PercentBasedOneThird"</span>: {
+    <span class="hljs-attr">"range"</span>: [<span class="hljs-number">33</span>, <span class="hljs-number">67</span>]
   },
 }</code></pre>
-<pre><code class="javascript language-javascript">const features = require('creature-features')();
-// Roughly 50% of the the time this will be true
-if (features.PercentBasedFiftyFifty) {
-// do something new
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">const</span> features = <span class="hljs-built_in">require</span>(<span class="hljs-string">'creature-features'</span>)();
+<span class="hljs-comment">// Roughly 50% of the the time this will be true</span>
+<span class="hljs-keyword">if</span> (features.PercentBasedFiftyFifty) {
+<span class="hljs-comment">// do something new</span>
 }
-// Roughly 33% of the the time this will be true
-if (features.PercentBasedOneThird) {
-// do something new
+<span class="hljs-comment">// Roughly 33% of the the time this will be true</span>
+<span class="hljs-keyword">if</span> (features.PercentBasedOneThird) {
+<span class="hljs-comment">// do something new</span>
 }</code></pre>
 <h3 id="in-webpack">In Webpack</h3>
-<pre><code class="javascript language-javascript">const features = require('creature-features')();
-const webpack = require('webpack');
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">const</span> features = <span class="hljs-built_in">require</span>(<span class="hljs-string">'creature-features'</span>)();
+<span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
 
-const featureFlags = new webpack.DefinePlugin({
-  FEATURES: features
+<span class="hljs-keyword">const</span> featureFlags = <span class="hljs-keyword">new</span> webpack.DefinePlugin({
+  <span class="hljs-attr">FEATURES</span>: features
 });
 
-module.exports = {
-  plugins: [featureFlags],
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">plugins</span>: [featureFlags],
   ...
 
-// in a ui file
-if (FEATURES.FeatureOne) { }</code></pre>
+<span class="hljs-comment">// in a ui file</span>
+<span class="hljs-keyword">if</span> (FEATURES.FeatureOne) { }</code></pre>
 <h3 id="why">Why?</h3>
 <ul>
 <li><a href="https://martinfowler.com/articles/feature-toggles.html">What are they?</a></li>
@@ -105,9 +107,9 @@ if (FEATURES.FeatureOne) { }</code></pre>
 <li><a href="http://featureflags.io/">More info</a></li>
 </ul>
 <h3 id="advanced-usage">Advanced Usage</h3>
-<pre><code class="javascript language-javascript">const creature = require('creature-features');
-const prodFeatures = creature('production');
-const locationFeatures = creature({location: './my-location/for-features'});
-const bothFeatures = creature({location: './my-location/for-features', env: 'staging'});</code></pre>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">const</span> creature = <span class="hljs-built_in">require</span>(<span class="hljs-string">'creature-features'</span>);
+<span class="hljs-keyword">const</span> prodFeatures = creature(<span class="hljs-string">'production'</span>);
+<span class="hljs-keyword">const</span> locationFeatures = creature({<span class="hljs-attr">location</span>: <span class="hljs-string">'./my-location/for-features'</span>});
+<span class="hljs-keyword">const</span> bothFeatures = creature({<span class="hljs-attr">location</span>: <span class="hljs-string">'./my-location/for-features'</span>, <span class="hljs-attr">env</span>: <span class="hljs-string">'staging'</span>});</code></pre>
   </div>
 </body>
