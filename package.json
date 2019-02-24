@@ -34,7 +34,7 @@
   },
   "homepage": "https://kevinisom.info/creature-features/",
   "devDependencies": {
-    "@kev_nz/publisher": "^2.0.0",
+    "@kev_nz/publisher": "^2.1.0",
     "coveralls": "^3.0.3",
     "cross-env": "^5.2.0",
     "eslint": "^5.14.1",
