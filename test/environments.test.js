@@ -6,7 +6,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load named the development features when the NODE_ENV is set to "development"', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const namedFeatures = creature()
     expect(namedFeatures.IsNamed).toBe(true)
     expect(namedFeatures.IsDevelopmentFromDefault).toBe(true)
@@ -15,7 +15,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features with a custom env when a different NODE_ENV is already set', () => {
     process.env.NODE_ENV = 'test'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const envFeatures = creature('development')
     expect(envFeatures.FirstFeature).toBe(true)
     expect(envFeatures.IsDevelopment).toBe(true)
@@ -25,7 +25,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features with a production env that does have a feature file', () => {
     process.env.NODE_ENV = 'production'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const envFeatures = creature()
 
     expect(envFeatures.IsTest).toBe(false)
@@ -35,7 +35,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a custom location and a custom environment based on NODE_ENV setting', () => {
     process.env.NODE_ENV = 'production'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/'
     })

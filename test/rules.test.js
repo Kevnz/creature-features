@@ -1,6 +1,6 @@
 describe('Feature based on rules', () => {
   it('should when passed a parameter evaluate the rule and return true or false', () => {
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/rules'
     })
@@ -10,7 +10,7 @@ describe('Feature based on rules', () => {
   })
 
   it('should when passed an object evaluate the rule and return true or false', () => {
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/rules'
     })
@@ -30,7 +30,7 @@ describe('Feature based on rules', () => {
   })
 
   it('should when passed an object evaluate the rule and return false if missing parameters', () => {
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/rules'
     })

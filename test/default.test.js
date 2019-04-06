@@ -5,7 +5,7 @@ describe('The Default Behavior of the Module', () => {
   })
 
   it('Load default features', () => {
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const features = creature()
     expect(features.FirstFeature).toBe(true)
     expect(features.DefaultOverride).toBe(false)
@@ -14,14 +14,14 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load named development features', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const namedFeatures = creature('development')
     expect(namedFeatures.IsNamed).toBe(true)
   })
 
   it('should load features with a custom environment passed', () => {
     process.env.NODE_ENV = 'test'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const envFeatures = creature('development')
     expect(envFeatures.FirstFeature).toBe(true)
     expect(envFeatures.IsDevelopment).toBe(true)
@@ -30,7 +30,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features with a custom env that does not have a feature file', () => {
     process.env.NODE_ENV = 'stable'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const envFeatures = creature()
 
     expect(envFeatures.FirstFeature).toBe(true)
@@ -39,7 +39,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a custom location and the NODE_ENV has been set', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/'
     })
@@ -50,7 +50,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a custom location no slash and the NODE_ENV has been set', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features'
     })
@@ -61,7 +61,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should when given a symbol return false and not error', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features'
     })
@@ -70,7 +70,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a custom location and a custom environment config object', () => {
     process.env.NODE_ENV = 'test'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/',
       env: 'development'
@@ -82,7 +82,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a config object with custom location without trailing slash', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features'
     })
@@ -93,7 +93,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should load features from a custom location with a trailing slash', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature({
       location: './test/features/'
     })
@@ -104,7 +104,7 @@ describe('The Default Behavior of the Module', () => {
 
   it('should throw an error when trying to set a feature', () => {
     process.env.NODE_ENV = 'development'
-    const creature = require('../index')
+    const creature = require('../src/file-based')
     const locationFeatures = creature()
 
     expect(() => {

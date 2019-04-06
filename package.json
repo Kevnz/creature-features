@@ -1,6 +1,6 @@
 {
   "name": "creature-features",
-  "version": "3.1.2",
+  "version": "4.0.0",
   "description": "Feature flags for node.js",
   "main": "index.js",
   "engines": {
@@ -41,9 +41,13 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react-hooks": "^1.5.0",
     "prettier": "^1.16.4"
   },
   "dependencies": {
+    "db-migrate": "^0.11.5",
+    "db-migrate-mongodb": "^1.5.0",
+    "db-migrate-pg": "^0.5.0",
     "debug": "^4.1.1",
     "end-with": "^1.0.2",
     "file-exists": "^5.0.1",
