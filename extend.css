@@ -5,6 +5,7 @@
 body {
   border-top: 0.4rem solid #1f8dd6;
 }
-.container p:nth-child(2n) {
+
+.container p:nth-child(2) {
   text-align: center;
 }
