@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/creature-features.svg)](https://badge.fury.io/js/creature-features) [![Build Status](https://travis-ci.org/Kevnz/creature-features.svg?branch=master)](https://travis-ci.org/Kevnz/creature-features) [![Coverage Status](https://coveralls.io/repos/github/Kevnz/creature-features/badge.svg?branch=master)](https://coveralls.io/github/Kevnz/creature-features?branch=master)
 
+![creature features](https://kevinisom.info/creature-features/creature-features.jpg)
+
 ## Dead simple feature flags
 
 Creature-Features allows feature flags based on json configuration files and supports true/false, custom rules, and weighted checks.
