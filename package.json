@@ -12,7 +12,8 @@
     "cov": "jest test/*.test.js --coverage",
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "predocs": " jest test/*.test.js --coverage --coverageDirectory=./dist/coverage ",
-    "docs": "publisher"
+    "docs": "publisher",
+    "postinstall": "node ./post-install.js"
   },
   "repository": {
     "type": "git",
@@ -34,22 +35,21 @@
   },
   "homepage": "https://kevinisom.info/creature-features/",
   "devDependencies": {
-    "@kev_nz/publisher": "^3.0.1",
-    "coveralls": "^3.0.3",
+    "@kev_nz/publisher": "^4.0.1",
+    "coveralls": "^3.0.4",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4"
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
   },
   "dependencies": {
     "debug": "^4.1.1",
     "end-with": "^1.0.2",
     "file-exists": "^5.0.1",
-    "jest": "^24.7.1",
-    "random-weighted": "^1.0.0",
-    "weighted": "^0.3.0"
+    "random-weighted": "^1.0.0"
   },
   "jest": {
     "coverageReporters": [
