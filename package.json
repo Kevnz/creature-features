@@ -13,7 +13,10 @@
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "predocs": " jest test/*.test.js --coverage --coverageDirectory=./dist/coverage ",
     "docs": "publisher",
-    "postinstall": "node ./post-install.js"
+    "postinstall": "node ./post-install.js",
+    "preversion": "npm test",
+    "postversion": "publisher",
+    "postpublish": "git push origin --all --follow-tags && npm run docs"
   },
   "repository": {
     "type": "git",
