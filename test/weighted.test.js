@@ -24,6 +24,7 @@ describe('Feature based on percents', () => {
         trueTotal++
       }
     }
+
     expect(trueTotal > 300).toBe(true)
     expect(trueTotal < 375).toBe(true)
   })
