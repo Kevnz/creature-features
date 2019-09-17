@@ -10,7 +10,7 @@ module.exports = function(config) {
   let featuresFile
   let baseFeatures
   let defaults = {
-    location: './features/'
+    location: path.join(process.cwd(), './features/')
   }
 
   const settings = Object.assign({}, defaults, config)
@@ -49,7 +49,7 @@ module.exports = function(config) {
         files[i].indexOf('development.') > -1 &&
         files[i] !== 'development.json'
       ) {
-        featuresFiles.push('./features/' + files[i])
+        featuresFiles.push(path.join(process.cwd(), './features/' + files[i]))
       }
     }
   }
