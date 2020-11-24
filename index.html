@@ -38,13 +38,13 @@
 <pre><code class="hljs bash language-bash">npm install creature-features --save</code></pre>
 <h3 id="configure">Configure</h3>
 <h4 id="directory-and-files">directory and files</h4>
-<pre><code class="hljs">- features
--- default<span class="hljs-selector-class">.json</span> (default settings)
--- development<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> development environment)
--- development.{named}<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> individual development environment)
--- test<span class="hljs-selector-class">.json</span> (settings <span class="hljs-keyword">for</span> test)
--- production<span class="hljs-selector-class">.json</span> (settigns <span class="hljs-keyword">for</span> production)
--- {any other environment}.json</code></pre>
+<pre><code class="hljs"><span class="hljs-bullet">- </span>features
+<span class="hljs-bullet">-- </span>default.json (default settings)
+<span class="hljs-bullet">-- </span>development.json (settings for development environment)
+<span class="hljs-bullet">-- </span>development.{named}.json (settings for individual development environment)
+<span class="hljs-bullet">-- </span>test.json (settings for test)
+<span class="hljs-bullet">-- </span>production.json (settigns for production)
+<span class="hljs-bullet">-- </span>{any other environment}.json</code></pre>
 <h4 id="example-file">Example File</h4>
 <pre><code class="hljs json language-json">{
   <span class="hljs-attr">"FeatureOne"</span>: <span class="hljs-literal">true</span>,
