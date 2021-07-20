@@ -1,6 +1,6 @@
 const creature = require('../index')
 const locationFeatures = creature({
-  location: './test/features/rules'
+  location: './test/features/rules',
 })
 
 const end = (label, hrstart) => {
@@ -27,7 +27,7 @@ describe('Feature based on rules and timer', () => {
     const hrstart = process.hrtime()
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features/rules'
+      location: './test/features/rules',
     })
     end('start', hrstart, start)
     const start1 = new Date()
@@ -60,7 +60,7 @@ describe('Feature based on rules and timer', () => {
   })
   describe.each(bigLoop)('Time it against a normal function', async () => {
     test('Test one call versus one handmade call', async () => {
-      const returner = name => {
+      const returner = (name) => {
         if (name === 'nope@example.com') return true
         return false
       }

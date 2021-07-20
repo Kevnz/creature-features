@@ -41,7 +41,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'development'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features/'
+      location: './test/features/',
     })
     expect(locationFeatures.Location).toBe(true)
     expect(locationFeatures.LocationIsTest).toBe(true)
@@ -52,7 +52,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'development'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features'
+      location: './test/features',
     })
     expect(locationFeatures.Location).toBe(true)
     expect(locationFeatures.LocationIsTest).toBe(true)
@@ -63,7 +63,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'development'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features'
+      location: './test/features',
     })
     expect(locationFeatures[Symbol('tester')]).toBe(false)
   })
@@ -73,7 +73,7 @@ describe('The Default Behavior of the Module', () => {
     const creature = require('../index')
     const locationFeatures = creature({
       location: './test/features/',
-      env: 'development'
+      env: 'development',
     })
 
     expect(locationFeatures.Location).toBe(true)
@@ -84,7 +84,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'development'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features'
+      location: './test/features',
     })
     expect(locationFeatures.Location).toBe(true)
     expect(locationFeatures.LocationIsTest).toBe(true)
@@ -95,7 +95,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'development'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features/'
+      location: './test/features/',
     })
     expect(locationFeatures.Location).toBe(true)
     expect(locationFeatures.LocationIsTest).toBe(true)

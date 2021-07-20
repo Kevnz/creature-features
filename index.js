@@ -5,12 +5,12 @@ const endWith = require('end-with')
 const random = require('random-weighted')
 const exists = fs.existsSync
 
-module.exports = function(config) {
+module.exports = function (config) {
   let env
   let featuresFile
   let baseFeatures
   let defaults = {
-    location: path.join(process.cwd(), './features/')
+    location: path.join(process.cwd(), './features/'),
   }
 
   const settings = Object.assign({}, defaults, config)
@@ -55,8 +55,8 @@ module.exports = function(config) {
   }
 
   const requiredFeatures = featuresFiles
-    .filter(f => exists(f))
-    .map(function(file) {
+    .filter((f) => exists(f))
+    .map(function (file) {
       return require(file)
     })
 
@@ -83,7 +83,7 @@ module.exports = function(config) {
         if (total !== 100) {
           throw new Error('Range values must total 100')
         }
-        const range = obj[prop].range.map(v => v / 100)
+        const range = obj[prop].range.map((v) => v / 100)
         return random(range) === 0
       }
 
@@ -116,7 +116,7 @@ module.exports = function(config) {
     },
     set: () => {
       throw new Error('Not allowed to set a value')
-    }
+    },
   })
 
   return featureProxy
