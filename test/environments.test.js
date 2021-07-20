@@ -37,7 +37,7 @@ describe('The Default Behavior of the Module', () => {
     process.env.NODE_ENV = 'production'
     const creature = require('../index')
     const locationFeatures = creature({
-      location: './test/features/'
+      location: './test/features/',
     })
 
     expect(locationFeatures.Location).toBe(true)

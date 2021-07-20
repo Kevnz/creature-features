@@ -2,7 +2,7 @@ describe('Feature based on percents', () => {
   it('should take an object with a range of 50 50 and return a % of true results', () => {
     const creature = require('../index')
     const features = creature({
-      location: './test/features/rules'
+      location: './test/features/rules',
     })
     let trueTotal = 0
     for (let index = 0; index < 1000; index++) {
@@ -16,7 +16,7 @@ describe('Feature based on percents', () => {
   it('should take an object with a range of 33 67 and return a % of true results', () => {
     const creature = require('../index')
     const features = creature({
-      location: './test/features/rules'
+      location: './test/features/rules',
     })
     let trueTotal = 0
     for (let index = 0; index < 1000; index++) {
@@ -32,7 +32,7 @@ describe('Feature based on percents', () => {
   it('should when given a range that totals above or below 100 throw an error', () => {
     const creature = require('../index')
     const features = creature({
-      location: './test/features/rules'
+      location: './test/features/rules',
     })
 
     expect(() => features.InvalidUnderPercentRule).toThrow()
@@ -41,7 +41,7 @@ describe('Feature based on percents', () => {
   it('should take an object with a range of 33 67 and return a % of true results for 10000 calls', () => {
     const creature = require('../index')
     const features = creature({
-      location: './test/features/rules'
+      location: './test/features/rules',
     })
     let trueTotal = 0
     for (let index = 0; index < 10000; index++) {

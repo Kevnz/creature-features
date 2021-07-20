@@ -39,17 +39,17 @@
   "homepage": "https://kevinisom.info/creature-features/",
   "devDependencies": {
     "@kev_nz/publisher": "^4.0.1",
-    "coveralls": "^3.0.9",
-    "cross-env": "^6.0.3",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "coveralls": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2"
   },
   "dependencies": {
-    "debug": "^4.1.1",
+    "debug": "^4.3.2",
     "end-with": "^1.0.2",
     "file-exists": "^5.0.1",
     "random-weighted": "^1.0.0"
